@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+</head>
+<body>
+  <h1>Admin Panel</h1>
+  {% if not users %}
+  <form method="post">
+    <input type="password" name="password" placeholder="Enter admin password">
+    <button type="submit">Login</button>
+  </form>
+  {% else %}
+  <table border="1">
+    <tr><th>Name</th><th>Username</th><th>Balance</th><th>Speed</th></tr>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.full_name }}</td>
+      <td>{{ user.username }}</td>
+      <td>₹{{ user.mining_balance }}</td>
+      <td>{{ user.mining_speed }} GH/s</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+</body>
+</html>
