@@ -1,11 +1,10 @@
-# app.py
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def home():
-    return "Hello, INR Miner is Live!"
+    return render_template('home.html')  # This will load templates/home.html
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=10000)
+if __name__ == '__main__':
+    app.run(debug=False, port=10000)
